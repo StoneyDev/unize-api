@@ -36,7 +36,7 @@ app.post('/login', (req, res) => {
       },
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
-      secure: false,
+      secure: true,
     });
 
     const options = {
@@ -73,4 +73,4 @@ app.get('/authenticate', (req, res) => {
   // res.status(404).end();
 });
 
-app.listen(80);
+app.listen(process.env.PORT || 3000);
