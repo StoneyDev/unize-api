@@ -12,6 +12,10 @@ app.use(helmet());
 
 app.disable('x-powered-by');
 
+app.get('/', (req, res) => {
+  res.send('API is ready');
+});
+
 app.post('/login', (req, res) => {
   if (req.body.email) {
     const token = jwt.sign(
@@ -68,3 +72,5 @@ app.get('/authenticate', (req, res) => {
   // }
   // res.status(404).end();
 });
+
+app.listen(80);
