@@ -55,16 +55,16 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/authenticate', (req, res) => {
-  if (req.query.token) {
-    try {
-      const decode = jwt.verify(req.query.token, process.env.JWT_SECRET);
-      // decode.email
-      res.cookie('sessionId', sessionId, {secure: true });
-    } catch (err) {
-      throw new Error(err.message);
-    }
-  } else {
-    throw new Error('No token found');
-  }
-  res.status(404).end();
+  // if (req.query.token) {
+  //   try {
+  //     const decode = jwt.verify(req.query.token, process.env.JWT_SECRET);
+  //     // decode.email
+  //     res.cookie('sessionId', sessionId, {secure: true });
+  //   } catch (err) {
+  //     throw new Error(err.message);
+  //   }
+  // } else {
+  //   throw new Error('No token found');
+  // }
+  // res.status(404).end();
 });
