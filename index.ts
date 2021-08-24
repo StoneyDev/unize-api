@@ -25,7 +25,6 @@ app.post('/login', (req, res) => {
       process.env.JWT_SECRET,
       {
         expiresIn: '30d',
-        algorithm: 'RS256',
       }
     );
 
@@ -36,7 +35,7 @@ app.post('/login', (req, res) => {
       },
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
-      secure: true,
+      secure: false,
     });
 
     const options = {
